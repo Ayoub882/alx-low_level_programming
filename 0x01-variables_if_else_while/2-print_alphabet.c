@@ -6,7 +6,7 @@
   * Return: Always 1 (indicating unsuccessful execution)
   */
 
-int main (void)
+int main(void)
 {
 	int n = 97;
 

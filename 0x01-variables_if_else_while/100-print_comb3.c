@@ -9,19 +9,17 @@
 int main(void)
 {
 	int n, m;
-	for (n = 48; n <= 56; n++)
+	for (n = 0; n < 9; n++)
 	{
-		for (m = 49; m <= 57; m++)
+		for (m = n +1; m <= 9; m++)
 		{
-			if (m > n)
+			putchar(n + '0');
+			putchar(m + '0');
+
+			if (n < 8 || m < 9)
 			{
-				putchar(n);
-				putchar(m);
-				if (n != 56 && m != 57)
-				{
-					putchar(',');
-					putchar(' ');
-				}
+				putchar(',');
+				putchar(' ');
 			}
 		}
 	}

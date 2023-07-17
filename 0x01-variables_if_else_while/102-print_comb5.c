@@ -12,12 +12,12 @@ int main(void)
 
 	for (a = 0; a < 100; a++)
 	{
-		for (b = i; b < 100; b++)
+		for (b = a; b < 100; b++)
 		{
 			int first_num = a / 10;
 			int second_num = a % 10;
 			int third_num = b / 10;
-			int fourth num = b % 10;
+			int fourth_num = b % 10;
 
 			putchar(first_num + '0');
 			putchar(second_num + '0');
@@ -25,7 +25,7 @@ int main(void)
 			putchar(third_num + '0');
 			putchar(fourth_num + '0');
 
-			if (a != 99 || b !- 99)
+			if (a != 99 || b != 99)
 			{
 				putchar(',');
 				putchar(' ');

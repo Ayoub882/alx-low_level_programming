@@ -30,6 +30,6 @@ void times_table(void)
 				    _putchar(' ');
 			    }
 		    }
+		    _putchar('\n'); // Move to the next row after each inner loop completes
 	    }
-	    _putchar('\n');
 }

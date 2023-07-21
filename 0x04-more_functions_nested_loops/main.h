@@ -18,35 +18,4 @@ void print_square(int size);
 
 void print_triangle(int size);
 
-#ifndef MAIN_H
-#define MAIN_H
-
-/* Function prototype */
-void print_triangle(int size);
-
-#endif /* MAIN_H */
-
-
 int _putchar(char c);
-
-int _putchar(char c);
-
-/**
-  * main.h
-  */
-#ifndef MAIN_H
-#define MAIN_H
-
-int _putchar(char c);
-
-#endif
-
-int main(void);
-
-#include <unistd.h>
-
-int _putchar(char c) {
-    return write(1, &c, 1);
-}
-
-

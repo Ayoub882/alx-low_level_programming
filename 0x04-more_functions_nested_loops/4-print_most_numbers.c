@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-#include <unistd.h>
 
 /**
  * print_most_numbers - prints the numbers from
@@ -16,6 +14,6 @@ void print_most_numbers(void)
 		{
 			_putchar(number);
 		}
-		_putchar('\n');
 	}
+	_putchar('\n');
 }

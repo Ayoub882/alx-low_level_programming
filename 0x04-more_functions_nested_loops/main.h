@@ -20,6 +20,8 @@ void print_triangle(int size);
 
 int _putchar(char c);
 
+int _putchar(char c);
+
 /**
   * main.h
   */

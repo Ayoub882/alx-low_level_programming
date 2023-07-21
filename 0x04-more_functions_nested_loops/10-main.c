@@ -1,16 +1,15 @@
-int main(void)
-
-#include <unistd.h>
+#include "main.h"
 
 /**
- * _putchar - writes a character to the standard output (stdout)
- * @c: The character to print
+ * main - check the code
  *
- * Return: On success, return the number of characters written.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: Always 0.
  */
-int _putchar(char c)
+int main(void)
 {
-    return write(1, &c, 1);
+	print_triangle(2);
+	print_triangle(10);
+	print_triangle(1);
+	print_triangle(0);
+	return (0);
 }
-

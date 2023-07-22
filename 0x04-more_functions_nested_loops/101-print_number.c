@@ -6,17 +6,13 @@
  */
 void print_number(int n)
 {
-	 if (n == INT_MIN)
-	 {
-		 _putchar('-');
-		 _putchar('2');
-		 print_number(147483648);
-		 return;
-	 }
+	 int is_negative = 0;
+
 	 if (n < 0)
 	 {
 		 _putchar('-');
 		 n = -n;
+		 is_negative = 1;
 	 }
 	 if (n / 10 != 0)
 	 {

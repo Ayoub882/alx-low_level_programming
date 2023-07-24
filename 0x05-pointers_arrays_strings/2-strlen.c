@@ -15,5 +15,5 @@ int _strlen(char *s)
 		s++;
 	}
 
-	return length_of_a_string;
+	return (length_of_a_string);
 }

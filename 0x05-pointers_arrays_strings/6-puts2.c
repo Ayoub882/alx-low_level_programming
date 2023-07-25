@@ -7,12 +7,17 @@
  */
 void puts2(char *str)
 {
+	int dex;
 	int index = 0;
 
 	while (str[index] != '\0')
 	{
-		putchar(str[index]);
 		index += 2;
 	}
+	for (dex = 0, dex < index, dex += 2)
+	{
+		putchar(str[dex]);
+	}
 
-	putchar('\n');}
+	putchar('\n');
+}

@@ -5,15 +5,15 @@
 * @dest: Pointer to the destination buffer.
 * @src: Pointer to the source string to be copied.
 * @n: Maximum number of bytes to be copied from src.
+*
 * Return: Pointer to the resulting string dest.
 */
 char *_strncpy(char *dest, char *src, int n)
 {
+/* Store the starting address of the destination buffer */
 char *dest_ptr = dest;
 
-/**
-  *Copy characters from src to dest, up to n bytes
-  */
+/* Copy characters from src to dest, up to n bytes */
 while (*src != '\0' && n > 0)
 {
 *dest_ptr = *src;
@@ -22,9 +22,7 @@ src++;
 n--;
 }
 
-/**
-  *If n is greater than the length of src, pad with null bytes
-  */
+/* If n is greater than the length of src, pad with null bytes */
 while (n > 0)
 {
 *dest_ptr = '\0';
@@ -34,3 +32,4 @@ n--;
 
 return (dest);
 }
+

@@ -1,48 +1,50 @@
 #include <stdio.h>
-#include <string.h>
 
+/**
+* infinite_add - Adds two numbers.
+* @n1: Pointer to the first number (null-terminated string).
+* @n2: Pointer to the second number (null-terminated string).
+* @r: Pointer to the buffer to store the result.
+* @size_r: Size of the buffer @r.
+*
+* Return: Pointer to the result (stored in @r) or 0 if the result cannot fit.
+*/
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-int len1 = strlen(n1);
-int len2 = strlen(n2);
-int carry = 0;
-int i, j, k;
+int i, j, k, len1, len2, sum, carry;
 
-/* Check if the result can be stored in the buffer */
-if (len1 + len2 >= size_r - 1)
+len1 = 0;
+while (n1[len1] != '\0')
+len1++;
+
+len2 = 0;
+while (n2[len2] != '\0')
+len2++;
+
+if (size_r <= len1 || size_r <= len2)
 return 0;
 
-/* Initialize the result buffer with null characters */
-for (i = 0; i < size_r; i++)
-r[i] = '\0';
+r[size_r - 1] = '\0';
+i = len1 - 1;
+j = len2 - 1;
+k = size_r - 2;
+carry = 0;
 
-/* Perform addition from right to left (rightmost digits) */
-for (i = len1 - 1, j = len2 - 1, k = size_r - 2; i >= 0 || j >= 0 || carry; i--, j--, k--)
+while (i >= 0 || j >= 0 || carry > 0)
 {
-int digit1 = (i >= 0) ? n1[i] - '0' : 0;
-int digit2 = (j >= 0) ? n2[j] - '0' : 0;
-int sum = digit1 + digit2 + carry;
+sum = carry;
+if (i >= 0)
+sum += n1[i] - '0';
+if (j >= 0)
+sum += n2[j] - '0';
 
 carry = sum / 10;
 r[k] = (sum % 10) + '0';
+
+i--;
+j--;
+k--;
 }
 
-/* Move the result to the beginning of the buffer */
-for (i = 0; r[i] == '0'; i++)
-;
-
-/* If the result is zero, set it to "0" */
-if (r[i] == '\0')
-{
-r[0] = '0';
-r[1] = '\0';
-}
-else
-{
-/* Shift the result to the beginning of the buffer */
-int len = strlen(&r[i]);
-memmove(r, &r[i], len + 1);
-}
-
-return (r);
+return &r[k + 1];
 }

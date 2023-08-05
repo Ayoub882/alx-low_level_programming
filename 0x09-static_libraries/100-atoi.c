@@ -25,5 +25,6 @@ int _atoi(char *s)
 		i++;
 	}
 	res *= sign;
+	_putchar('\n');
 	return (res);
 }

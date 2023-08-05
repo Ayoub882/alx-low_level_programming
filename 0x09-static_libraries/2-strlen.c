@@ -13,6 +13,6 @@ int _strlen(char *s)
 		longi++;
 		s++;
 	}
-
+	_putchar('\n');
 	return (longi);
 }

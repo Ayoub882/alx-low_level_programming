@@ -107,5 +107,5 @@ char **strtow(char *str)
 
 	words[word_index] = NULL;
 
-	return words;
+	return (words);
 }

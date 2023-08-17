@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "3-calc.h"
-
+#include "function_pointers.h"
 /**
  * main - Entry point
- * @argc: Number of arguments
- * @argv: Array of arguments
+ * @argc: Argument count
+ * @argv: Argument vector
  *
- * Return: Always 0
+ * Return: Always 0 (Success)
  */
 int main(int argc, char *argv[])
 {
@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	if (argc != 4)
 	{
 		printf("Error\n");
-		exit(98);
+		return (98);
 	}
 
 	num1 = atoi(argv[1]);
@@ -27,7 +27,13 @@ int main(int argc, char *argv[])
 	if (func == NULL)
 	{
 		printf("Error\n");
-		exit(99);
+		return (99);
+	}
+
+	if ((*argv[2] == '/' || *argv[2] == '%') && num2 == 0)
+	{
+		printf("Error\n");
+		return (100);
 	}
 
 	result = func(num1, num2);

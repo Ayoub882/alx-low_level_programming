@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stddef.h>
 #include "lists.h"
 
 /**
@@ -13,7 +13,10 @@ size_t print_listint(const listint_t *h)
 
 	while (h != NULL)
 	{
-		printf("%d\n", h->n);
+		/* Use _putchar to print the value as a character */
+		char digit = h->n + '0'; /*Convert integer to character*/
+		_putchar(digit); /*Call _putchar to print the character*/
+		_putchar('\n'); /*Print newline character*/
 		h = h->next;
 		node_count++;
 	}

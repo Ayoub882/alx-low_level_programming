@@ -1,4 +1,4 @@
-#include <stddef.h>
+#include <stdio.h>
 #include "lists.h"
 
 /**
@@ -9,17 +9,15 @@
  */
 size_t print_listint(const listint_t *h)
 {
-    size_t node_count = 0;
+	size_t node_count = 0;
 
-    while (h != NULL)
-    {
-        char digit = h->n + '0'; /*Convert integer to character*/
-        _putchar(digit); /*Call _putchar to print the character*/
-        _putchar('\n'); /*Print newline character*/
-        h = h->next;
-        node_count++;
-    }
+	while (h != NULL)
+	{
+		printf("%d\n", h->n);
+		h = h->next;
+		node_count++;
+	}
 
-    return (node_count);
+	return (node_count);
 }
 

@@ -11,32 +11,37 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-    const listint_t *current = head, *loop_node = head;
-    size_t count = 0;
+	const listint_t *slow = head, *fast = head;
+	size_t count = 0, loop_detected = 0;
 
-    while (current != NULL)
-    {
-        printf("[%p] %d\n", (void *)current, current->n);
+	while (slow != NULL && fast != NULL && fast->next != NULL)
+	{
+		slow = slow->next;
+		fast = fast->next->next;
+		count++;
 
-        if (current->next == loop_node && count > 0)
-        {
-            printf("-> [%p] %d\n", (void *)loop_node, loop_node->n);
-            break; /* List contains a loop, break the loop */
-        }
+		printf("[%p] %d\n", (void *)slow, slow->n);
 
-        count++;
-        current = current->next;
+		if (slow == fast)
+		{
+			loop_detected = 1;
+			break; /* Loop detected, break the loop */
+		}
+	}
 
-        if (current == loop_node)
-        {
-            printf("-> [%p] %d\n", (void *)loop_node, loop_node->n);
-            exit(98); /* List contains a loop, exit with status 98 */
-        }
+	if (loop_detected)
+	{
+		slow = head;
+		while (slow != fast)
+		{
+			printf("[%p] %d\n", (void *)slow, slow->n);
+			slow = slow->next;
+			fast = fast->next;
+		}
+		printf("-> [%p] %d\n", (void *)slow, slow->n);
+		exit(98); /* List contains a loop, exit with status 98 */
+	}
 
-        if (count % 2 == 0 && loop_node != NULL)
-            loop_node = loop_node->next;
-    }
-
-    return count;
+	return (count);
 }
 

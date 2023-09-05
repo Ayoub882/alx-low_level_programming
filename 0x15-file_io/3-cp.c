@@ -50,8 +50,7 @@ int open_source_file(const char *file_name)
 }
 
 /**
- * open_destination_file - Open the destination
- * file for writing and handle errors.
+ * open_destination_file - Open the destination file for writing and handle errors.
  * @file_name: The name of the destination file.
  * Return: The file descriptor of the destination file, or -1 on error.
  */
@@ -95,8 +94,7 @@ void copy_contents(int fd_from, int fd_to)
 }
 
 /**
- * close_files - Close the source and destination
- * files and handle errors.
+ * close_files - Close the source and destination files and handle errors.
  * @fd_from: The file descriptor of the source file.
  * @fd_to: The file descriptor of the destination file.
  */
@@ -109,6 +107,5 @@ void close_files(int fd_from, int fd_to)
 				(close(fd_from) == -1) ? fd_from : fd_to);
 		exit(100);
 	}
-
 }
 

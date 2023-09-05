@@ -50,7 +50,8 @@ int open_source_file(const char *file_name)
 }
 
 /**
- * open_destination_file - Open the destination file for writing and handle errors.
+ * open_destination_file - Open the destination
+ * file for writing and handle errors.
  * @file_name: The name of the destination file.
  * Return: The file descriptor of the destination file, or -1 on error.
  */

@@ -5,11 +5,13 @@
  * @n: The number to extract the bit from.
  * @index: The index of the bit to retrieve (0-based).
  *
- * Return: The value of the bit at the specified index, or -1 if an error occurs.
+ * Return: The value of the bit at the specified index,
+ * or -1 if an error occurs.
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned long int mask = 1UL << index; /*Create a mask with a 1 at the specified index*/
+	unsigned long int mask = 1UL << index;
+	/*Create a mask with a 1 at the specified index*/
 
 	if (index >= sizeof(unsigned long int) * 8)
 		return (-1); /*Error: index out of range*/

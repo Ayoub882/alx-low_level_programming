@@ -12,33 +12,20 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t count = 0;
-	int loop_detected = 0;
+	const listint_t *current = head;
 
-	while (head != NULL)
+	while (current != NULL)
 	{
-		char buffer[20];
-		int len = snprintf(buffer, sizeof(buffer), "%d");
-
-		write(STDOUT_FILENO, "[", 1);
-		write(STDOUT_FILENO, (void *)&head, sizeof(void *));
-		write(STDOUT_FILENO, "] ", 2);
-		write(STDOUT_FILENO, buffer, len);
-		write(STDOUT_FILENO, "\n", 1);
-
+		printf("[%p] %d\n", (void *)current, current->n);
 		count++;
 
-		if (loop_detected == 0 && head <= head->next)
+		if (current <= current->next)
 		{
-			loop_detected = 1;
-			fprintf(stderr, "-> [%p] %d\n", (void *)head->next, head->next->n);
+			fprintf(stderr, "-> [%p] %d\n", (void *)current->next, current->next->n);
+			break;
 		}
 
-		head = head->next;
-	}
-
-	if (loop_detected == 1)
-	{
-		exit(98);
+		current = current->next;
 	}
 
 	return (count);

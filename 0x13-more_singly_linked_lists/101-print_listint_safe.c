@@ -42,6 +42,7 @@ size_t print_listint_safe(const listint_t *head)
 			write(STDOUT_FILENO, "] ", 2);
 			write(STDOUT_FILENO, buffer, len);
 			write(STDOUT_FILENO, "\n", 1);
+			break;
 			exit(98);
 		}
 	}

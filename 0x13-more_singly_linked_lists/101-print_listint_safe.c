@@ -1,7 +1,7 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include "lists.h"
-#include <unistd.h>
 
 /**
  * print_listint_safe - Prints a listint_t linked list.
@@ -16,35 +16,21 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t count = 0;
-	const listint_t *tortoise = head, *hare = head;
-	int len;
-	char buffer[20];
+	const listint_t *current = head;
+	const listint_t *loop_node = NULL;
 
-	while (hare != NULL && hare->next != NULL)
+	while (current)
 	{
-		tortoise = tortoise->next;
-		hare = hare->next->next;
-
-		len = snprintf(buffer, sizeof(buffer), "%d", tortoise->n);
-
-		write(STDOUT_FILENO, "[", 1);
-		write(STDOUT_FILENO, (void *)&tortoise, sizeof(void *));
-		write(STDOUT_FILENO, "] ", 2);
-		write(STDOUT_FILENO, buffer, len);
-		write(STDOUT_FILENO, "\n", 1);
+		printf("[%p] %d\n", (void *)current, current->n);
 		count++;
 
-		if (tortoise == hare)
+		if (current <= loop_node)
 		{
-			len = snprintf(buffer, sizeof(buffer), "%d", hare->n);
-			write(STDOUT_FILENO, "-> [", 4);
-			write(STDOUT_FILENO, (void *)&hare, sizeof(void *));
-			write(STDOUT_FILENO, "] ", 2);
-			write(STDOUT_FILENO, buffer, len);
-			write(STDOUT_FILENO, "\n", 1);
-			break;
 			exit(98);
 		}
+
+		loop_node = current;
+		current = current->next;
 	}
 
 	return (count);

@@ -21,15 +21,16 @@ int append_text_to_file(const char *filename, char *text_content);
 char *create_buffer(char *file);
 void close_file(int fd);
 
-void checkElfMagic(unsigned char *e_ident);
-void printElfMagic(unsigned char *e_ident);
-void printElfClass(unsigned char *e_ident);
-void printElfData(unsigned char *e_ident);
-void printElfVersion(unsigned char *e_ident);
-void printElfOsAbi(unsigned char *e_ident);
-void printElfType(unsigned int e_type, unsigned char *e_ident);
-void printElfEntryPoint(Elf64_Addr e_entry, unsigned char *e_ident);
-void closeFile(int fileDescriptor);
+void check_elf(unsigned char *e_ident);
+void print_magic(unsigned char *e_ident);
+void print_class(unsigned char *e_ident);
+void print_data(unsigned char *e_ident);
+void print_version(unsigned char *e_ident);
+void print_abi(unsigned char *e_ident);
+void print_osabi(unsigned char *e_ident);
+void print_type(unsigned int e_type, unsigned char *e_ident);
+void print_entry(unsigned long int e_entry, unsigned char *e_ident);
+void close_elf(int elf);
 
 #endif /* MAIN_H */
 

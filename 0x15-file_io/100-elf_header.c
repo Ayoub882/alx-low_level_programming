@@ -3,7 +3,6 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <elf.h>
-#include "main.h"
 
 /**
  * checkElfMagic - Checks if the file has a valid ELF magic number.
@@ -248,14 +247,14 @@ void closeFile(int fileDescriptor)
  */
 int main(int argc, char *argv[])
 {
+	int fileDescriptor, bytesRead;
+	Elf64_Ehdr *header;
+
 	if (argc != 2)
 	{
 		fprintf(stderr, "Usage: %s <ELF file>\n", argv[0]);
 		exit(1);
 	}
-
-	int fileDescriptor, bytesRead;
-	Elf64_Ehdr *header;
 
 	fileDescriptor = open(argv[1], O_RDONLY);
 	if (fileDescriptor == -1)
